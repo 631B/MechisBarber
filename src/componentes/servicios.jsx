@@ -1,11 +1,13 @@
 export function Servicios({ servicio, descripcion, imagenes }) {
   return (
     <div className="">
-      <h2>
+      <p>
         <strong>{servicio}</strong>
-      </h2>
+      </p>
       <p>{descripcion}</p>
-      <img src={imagenes} alt="no" />
+      {imagenes.map((src, index) => (
+        <img key={index} src={src} alt={`Image ${index}`} />
+      ))}
     </div>
   );
 }
