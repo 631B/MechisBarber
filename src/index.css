@@ -2,3 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #4A5568; /* Dark gray (Tailwind gray-700) */
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #2D3748; /* Darker gray (Tailwind gray-800) on hover */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: black; /* Light gray background (Tailwind gray-100) */
+  }

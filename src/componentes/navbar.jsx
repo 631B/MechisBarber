@@ -1,13 +1,16 @@
 export function Navbar({ scrollToSection, servicesRef, barbersRef }) {
   return (
-    <div className=" bg-cyan-600 h-10 w-100% fixed top-0 left-0">
-      <ul className="flex gap-10 mx-20 text-xl px-10">
-        <li>
+    <div className="fixed top-0 w-full flex justify-between items-center h-24 max-w-full mx-auto px-4 z-50 bg-black text-white">
+      <h1 className="text-3xl font-bold text-blue-500">
+        Logo
+      </h1>
+      <ul className="hidden sm:flex text-white">
+        <li className="p-4">
           <button onClick={() => scrollToSection(servicesRef)}>
             Servicios
           </button>
         </li>
-        <li>
+        <li className="p-4">
           <button onClick={() => scrollToSection(barbersRef)}>
             Peluqueros
           </button>
