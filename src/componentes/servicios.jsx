@@ -1,12 +1,14 @@
 export function Servicios({ servicio, descripcion, imagenes }) {
   return (
-    <div className="flex items-center p-2">
-      <p className="text-white w-[18%]">
-        <strong>{servicio}</strong>
-      </p>
-      <p className="text-white">{descripcion}</p>
+    <div className="flex text-white p-4">
+      <div className="flex flex-col">
+        <p>
+          <strong>{servicio}</strong>
+        </p>
+        <p className="text-white">{descripcion}</p>
+      </div>
       {imagenes.map((src, index) => (
-        <img key={index} src={src} alt={`Image ${index}`} />
+        <img key={index} src={src} alt={`Image ${index}`}/>
       ))}
     </div>
   );

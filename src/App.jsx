@@ -1,6 +1,7 @@
 import { Navbar } from "./componentes/navbar";
 import { Peluqueros } from "./componentes/peluqueros";
 import { Servicios } from "./componentes/servicios";
+import { Footer } from "./componentes/footer";
 import juanImage from "../public/images/Juan.jpg";
 import pedroImage from "../public/images/Pedro.jpg";
 import { useRef } from "react";
@@ -41,6 +42,7 @@ function App() {
           descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat exercitationem ipsa fuga labore molestias error debitis tenetur sapiente quasi vitae quidem fugiat ducimus, similique rem mollitia commodi voluptas maxime."
           imagenes={images}
         />
+      <Footer />
     </>
   );
 }
