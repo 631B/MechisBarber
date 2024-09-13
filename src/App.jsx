@@ -22,16 +22,16 @@ function App() {
         servicesRef={servicesRef}
         barbersRef={barbersRef}
       />
-      <h2 ref={barbersRef} className="mt-24 text-white text-2xl p-4">
+      <h2 ref={barbersRef} className="mt-24 text-yellow-500 text-2xl p-4">
         <strong>Peluqueros</strong>
       </h2>
-      <div className="flex justify-between p-4">
+      <div className="w-full overflow-x-auto flex snap-x snap-mandatory space-x-4 p-4 justify-between">
         <Peluqueros nombre="Pedro" />
         <Peluqueros nombre="Juan" />
         <Peluqueros nombre="Pepe" />
         <Peluqueros nombre="Adolfo" />
       </div>
-      <h2 ref={servicesRef} className="text-white text-2xl p-4"><strong>Servicios</strong></h2>
+      <h2 ref={servicesRef} className="text-yellow-500 text-2xl p-4"><strong>Servicios</strong></h2>
         <Servicios
           servicio="Corte de Pelo"
           descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat exercitationem ipsa fuga labore molestias error debitis tenetur sapiente quasi vitae quidem fugiat ducimus, similique rem mollitia commodi voluptas maxime."

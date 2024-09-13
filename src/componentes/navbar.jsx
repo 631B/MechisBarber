@@ -6,18 +6,16 @@ export function Navbar({ scrollToSection, servicesRef, barbersRef }) {
   const [isOpen, setIsOpen] = React.useState(false)
   return (
     <div className="fixed top-0 w-full flex justify-between items-center h-24 px-4 z-50 bg-black text-white">
-        <div className="text-3xl font-bold text-blue-500">
-          Logo
-        </div>
+        <img className='shrink-0 h-28' src="./images/Isologo.png" alt="No" />
 
         <ul className="hidden sm:flex text-white">
           <li className="p-4">
-            <button onClick={() => scrollToSection(servicesRef)}>
+            <button className='hover:text-yellow-500' onClick={() => scrollToSection(servicesRef)}>
               Servicios
             </button>
           </li>
           <li className="p-4">
-            <button onClick={() => scrollToSection(barbersRef)}>
+            <button className='hover:text-yellow-500' onClick={() => scrollToSection(barbersRef)}>
               Peluqueros
             </button>
           </li>
