@@ -6,18 +6,18 @@ export function Navbar({ scrollToSection, servicesRef, barbersRef, darkMode, tog
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <div className="dark:bg-MechisBlack bg-white fixed top-0 w-full flex justify-between items-center border-b-4 border-gray-950 h-24 px-4 z-50">
+    <div className="dark:bg-MechisBlack bg-MechisWhite fixed top-0 w-full flex justify-between items-center border-b-4 border-gray-950 h-24 px-4 z-50">
         <img className='shrink-0 h-20' src={darkMode ? "./images/LogotipoBlanco.png" : "./images/LogotipoNegro.png"} alt="No" />
         
 
         <ul className="hidden sm:flex">
           <li className="p-4">
-            <button className='hover:text-yellow-500' onClick={() => scrollToSection(servicesRef)}>
+            <button className='hover:text-MechisYellow' onClick={() => scrollToSection(servicesRef)}>
               Servicios
             </button>
           </li>
           <li className="p-4">
-            <button className='hover:text-yellow-500' onClick={() => scrollToSection(barbersRef)}>
+            <button className='hover:text-MechisYellow' onClick={() => scrollToSection(barbersRef)}>
               Peluqueros
             </button>
           </li>
@@ -34,7 +34,7 @@ export function Navbar({ scrollToSection, servicesRef, barbersRef, darkMode, tog
 
       <ul className={`${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
-        } bg-white text-MechisBlack dark:bg-MechisBlack dark:text-white transition-all ease-in-out duration-500 absolute top-24 left-0 w-full flex flex-col items-center sm:hidden`}>
+        } bg-MechisWhite text-MechisBlack dark:bg-MechisBlack dark:text-MechisWhite transition-all ease-in-out duration-500 absolute top-24 left-0 w-full flex flex-col items-center sm:hidden`}>
         <li className="p-4 border-b border-gray-600 w-full text-center">
           <button onClick={() => scrollToSection(servicesRef) & setIsOpen(false)}>
             Servicios

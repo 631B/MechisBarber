@@ -54,7 +54,7 @@ function App() {
         darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}
       />
-      <h2 ref={barbersRef} className="mt-20 text-yellow-500 text-2xl p-4">
+      <h2 ref={barbersRef} className="mt-20 text-MechisYellow text-2xl p-4">
         <strong>Peluqueros</strong>
       </h2>
       <div className="flex flex-col items-center w-full md: md:flex-row md:justify-between">
@@ -62,7 +62,7 @@ function App() {
         <Peluqueros nombre="Juan" />
         <Peluqueros nombre="Adolfo" />
       </div>
-      <h2 ref={servicesRef} className="text-yellow-500 text-2xl p-4">
+      <h2 ref={servicesRef} className="text-MechisYellow text-2xl p-4">
         <strong>Servicios</strong>
       </h2>
       <Servicios

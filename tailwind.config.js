@@ -5,7 +5,9 @@ export default {
   theme: {
     extend: {
     colors: {
-      'MechisBlack': '#000101',
+      'MechisBlack': '#010100',
+      "MechisYellow": "#fdaa1b",
+      "MechisWhite": "#fefeff"
     },
     }
   },
