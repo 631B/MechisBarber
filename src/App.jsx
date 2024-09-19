@@ -5,11 +5,14 @@ import { Footer } from "./componentes/footer";
 import corteImage1 from "../public/images/corteImage1.jpg";
 import corteImage2 from "../public/images/corteImage2.jpg";
 import { useEffect, useRef, useState } from "react";
+import { Principal } from "./componentes/principal";
+import { Pedirturno } from "./componentes/pedirTurno";
 
 function App() {
   const corteImages = [corteImage1, corteImage2];
   const servicesRef = useRef(null);
   const barbersRef = useRef(null);
+  const turnoRef = useRef(null);
 
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -42,7 +45,13 @@ function App() {
   };
 
   const scrollToSection = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
+    const navbarHeight = 96;
+    const sectionTop = ref.current.offsetTop;
+
+    window.scrollTo({
+      top: sectionTop - navbarHeight,
+      behavior: "smooth"
+    });
   };
 
   return (
@@ -53,8 +62,13 @@ function App() {
         barbersRef={barbersRef}
         darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}
+        turnoRef={turnoRef}
       />
-      <h2 ref={barbersRef} className="mt-20 text-MechisYellow text-2xl p-4">
+      <Principal
+        scrollToSection={scrollToSection}
+        turnoRef={turnoRef}
+      />
+      <h2 ref={barbersRef} className=" text-MechisYellow text-2xl p-4">
         <strong>Peluqueros</strong>
       </h2>
       <div className="flex flex-col items-center w-full md: md:flex-row md:justify-between">
@@ -70,9 +84,13 @@ function App() {
         descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat exercitationem ipsa fuga labore molestias error debitis tenetur sapiente quasi vitae quidem fugiat ducimus, similique rem mollitia commodi voluptas maxime."
         imagenes={corteImages}
       />
+      <h2 ref={turnoRef} className="text-MechisYellow text-2xl p-4">
+        <strong>Pedir Turno</strong>
+      </h2>
+      <Pedirturno />
       <Footer darkMode={darkMode} />
     </>
   );
-}
+};
 
 export default App;
