@@ -59,7 +59,7 @@ export function Navbar({
       </ul>
 
       <ul
-        className={`hidden md:flex font-bold text-sm ${
+        className={`hidden lg:flex font-bold text-md p-4 ${
           isScrolled ? "top-10" : "top-0"
         }`}
       >
@@ -111,15 +111,12 @@ export function Navbar({
         <AppointmentButton
           scrollToSection={scrollToSection}
           turnoRef={turnoRef}
-          isScrolled={isScrolled}
-          hideOnScroll={true}
-          navBar={true}
         />
       </ul>
 
       <ul
         className={`z-10 w-full flex items-center justify-between ${
-          isScrolled ? "block md:hidden" : "hidden md:hidden"
+          isScrolled ? "block lg:hidden" : "hidden lg:hidden"
         }`}
       >
         <li className="p-4 flex items-center">
@@ -137,21 +134,46 @@ export function Navbar({
 
       <ul
         className={`${
-          isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
-        } bg-MechisWhite text-MechisBlack dark:bg-MechisBlack dark:text-MechisWhite transition-all ease-in-out duration-500 absolute top-24 left-0 w-full flex flex-col items-center sm:hidden`}
+          isOpen & isScrolled
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full"
+        } bg-MechisWhite text-MechisBlack dark:bg-MechisBlack dark:text-MechisWhite transition-all ease-in-out duration-500 absolute top-24 left-0 w-full flex flex-col items-center lg:hidden`}
       >
         <li className="p-4 border-b border-gray-600 w-full text-center">
           <button
-            onClick={() => scrollToSection(servicesRef) & setIsOpen(false)}
+            onClick={() =>
+              window.scrollTo({ top: 0, behavior: "smooth" }) & setIsOpen(false)
+            }
           >
-            Servicios
+            INICIO
           </button>
         </li>
         <li className="p-4 border-b border-gray-600 w-full text-center">
           <button
             onClick={() => scrollToSection(barbersRef) & setIsOpen(false)}
           >
-            Peluqueros
+            BARBEROS
+          </button>
+        </li>
+        <li className="p-4 border-b border-gray-600 w-full text-center">
+          <button
+            onClick={() => scrollToSection(servicesRef) & setIsOpen(false)}
+          >
+            SERVICIOS
+          </button>
+        </li>
+        <li className="p-4 border-b border-gray-600 w-full text-center">
+          <button
+            onClick={() => scrollToSection(pricingRef) & setIsOpen(false)}
+          >
+            PRECIOS
+          </button>
+        </li>
+        <li className="p-4 border-b border-gray-600 w-full text-center">
+          <button
+            onClick={() => scrollToSection(galleryRef) & setIsOpen(false)}
+          >
+            GALERIA
           </button>
         </li>
       </ul>

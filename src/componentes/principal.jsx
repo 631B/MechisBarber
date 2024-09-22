@@ -19,9 +19,6 @@ export function Principal({ scrollToSection, turnoRef }) {
         <AppointmentButton
           scrollToSection={scrollToSection}
           turnoRef={turnoRef}
-          hideOnScroll={false}
-          isScrolled={false}
-          navBar={false}
         />
       </div>
     </div>
