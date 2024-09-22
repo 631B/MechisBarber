@@ -1,76 +1,160 @@
-import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import { FaBars, FaTimes, FaSun, FaMoon } from "react-icons/fa";
+import { useEffect } from "react";
+import { useState } from "react";
+import AppointmentButton from "./AppointmentButton";
 
-export function Navbar({ scrollToSection, servicesRef, barbersRef, darkMode, toggleDarkMode, turnoRef }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+export function Navbar({
+  scrollToSection,
+  servicesRef,
+  pricingRef,
+  galleryRef,
+  barbersRef,
+  darkMode,
+  toggleDarkMode,
+  turnoRef,
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 0);
+      setIsScrolled(scrollTop > 10);
     };
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  })
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
 
   return (
-    <div className={`fixed top-0 w-full flex justify-between transition-all duration-300 items-center h-24 px-4 z-50 ${
-    isScrolled ? ' bg-MechisWhite dark:bg-MechisBlack border-b-4 border-gray-950' : 'border-0 bg-transparent'
-    }`}>
-        
-        <img className={`shrink-0 h-20 transition-opacity duration-300 ${isScrolled ? "opacity-100" : "opacity-0"}`}
-        src={darkMode ? "./images/LogotipoBlanco.png" : "./images/LogotipoNegro.png"} alt="No" />
-        <ul className="hidden sm:flex font-bold md:text-3xl text-2xl">
-          <li className="p-4">
-            <button className='hover:text-MechisYellow' onClick={() => scrollToSection(servicesRef)}>
-              Servicios
-            </button>
-          </li>
-          <li className="p-4">
-            <button className='hover:text-MechisYellow' onClick={() => scrollToSection(barbersRef)}>
-              Peluqueros
-            </button>
-          </li>
-          <li className="p-4">
-            <button className='hover:text-MechisYellow' onClick={() => scrollToSection(turnoRef)}>
-              Pedir Turno
-            </button>
-          </li>
-          <li className="p-4">
-            <button onClick={() => toggleDarkMode()}>
-              {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
-            </button>
-          </li>
-        </ul>
+    <nav
+      className={`fixed w-full flex justify-between transition-all duration-300 px-2 z-50 ${
+        isScrolled
+          ? "top-0 h-24  bg-gray-300 dark:bg-gray-900 items-center"
+          : "top-10 h-32 bg-transparent items-start"
+      }`}
+    >
+      <img
+        className={"shrink-0 h-20 transition-opacity duration-300"}
+        src={
+          darkMode
+            ? "./images/LogotipoBlanco.png"
+            : "./images/LogotipoNegro.png"
+        }
+        alt="No"
+      />
+      <ul
+        className={`flex items-center justify-evenly fixed top-0 left-1/2 transform -translate-x-1/2 w-11/12 h-8 bg-MechisWhite dark:bg-MechisBlack rounded-b-full shadow-md z-0 ${
+          isScrolled ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <li>
+          <strong>Numero:</strong> 13513414
+        </li>
+        <li>
+          <strong>Horarios:</strong> sabado domingo
+        </li>
+      </ul>
 
-      <div onClick={() => setIsOpen(!isOpen)} className="sm:hidden z-10">
+      <ul
+        className={`hidden md:flex font-bold text-sm ${
+          isScrolled ? "top-10" : "top-0"
+        }`}
+      >
+        <li className="p-4">
+          <button
+            className="hover:text-MechisYellow"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            INICIO
+          </button>
+        </li>
+        <li className="p-4">
+          <button
+            className="hover:text-MechisYellow"
+            onClick={() => scrollToSection(barbersRef)}
+          >
+            BARBEROS
+          </button>
+        </li>
+        <li className="p-4">
+          <button
+            className="hover:text-MechisYellow"
+            onClick={() => scrollToSection(servicesRef)}
+          >
+            SERVICIOS
+          </button>
+        </li>
+        <li className="p-4">
+          <button
+            className="hover:text-MechisYellow"
+            onClick={() => scrollToSection(pricingRef)}
+          >
+            PRECIOS
+          </button>
+        </li>
+        <li className="p-4">
+          <button
+            className="hover:text-MechisYellow"
+            onClick={() => scrollToSection(galleryRef)}
+          >
+            GALERIA
+          </button>
+        </li>
+        <li className="p-4 flex items-center justify-center ">
+          <button onClick={() => toggleDarkMode()}>
+            {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
+          </button>
+        </li>
+        <AppointmentButton
+          scrollToSection={scrollToSection}
+          turnoRef={turnoRef}
+          isScrolled={isScrolled}
+          hideOnScroll={true}
+          navBar={true}
+        />
+      </ul>
+
+      <ul
+        className={`z-10 w-full flex items-center justify-between ${
+          isScrolled ? "block md:hidden" : "hidden md:hidden"
+        }`}
+      >
+        <li className="p-4 flex items-center">
+          <button onClick={() => toggleDarkMode()}>
+            {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
+          </button>
+        </li>
+        <li
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-4 flex items-center"
+        >
           {isOpen ? <FaTimes /> : <FaBars />}
-      </div>
+        </li>
+      </ul>
 
-      <ul className={`${
-          isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
-        } bg-MechisWhite text-MechisBlack dark:bg-MechisBlack dark:text-MechisWhite transition-all ease-in-out duration-500 absolute top-24 left-0 w-full flex flex-col items-center sm:hidden`}>
+      <ul
+        className={`${
+          isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
+        } bg-MechisWhite text-MechisBlack dark:bg-MechisBlack dark:text-MechisWhite transition-all ease-in-out duration-500 absolute top-24 left-0 w-full flex flex-col items-center sm:hidden`}
+      >
         <li className="p-4 border-b border-gray-600 w-full text-center">
-          <button onClick={() => scrollToSection(servicesRef) & setIsOpen(false)}>
+          <button
+            onClick={() => scrollToSection(servicesRef) & setIsOpen(false)}
+          >
             Servicios
           </button>
         </li>
         <li className="p-4 border-b border-gray-600 w-full text-center">
-          <button onClick={() => scrollToSection(barbersRef) & setIsOpen(false)}>
+          <button
+            onClick={() => scrollToSection(barbersRef) & setIsOpen(false)}
+          >
             Peluqueros
           </button>
         </li>
-        <li className="p-4 border-b border-gray-600 w-full text-center">
-          <button onClick={() => scrollToSection(turnoRef) & setIsOpen(false)}>
-            Pedir Turno
-          </button>
-        </li>
       </ul>
-    </div>
+    </nav>
   );
 }

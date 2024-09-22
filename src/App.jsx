@@ -10,7 +10,10 @@ import { Pedirturno } from "./componentes/pedirTurno";
 
 function App() {
   const corteImages = [corteImage1, corteImage2];
+  const homeRef = useRef(null);
   const servicesRef = useRef(null);
+  const pricingRef = useRef(null);
+  const galleryRef = useRef(null);
   const barbersRef = useRef(null);
   const turnoRef = useRef(null);
 
@@ -45,12 +48,12 @@ function App() {
   };
 
   const scrollToSection = (ref) => {
-    const navbarHeight = 96;
+    const navbarHeight = 95;
     const sectionTop = ref.current.offsetTop;
 
     window.scrollTo({
       top: sectionTop - navbarHeight,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -58,16 +61,16 @@ function App() {
     <>
       <Navbar
         scrollToSection={scrollToSection}
-        servicesRef={servicesRef}
-        barbersRef={barbersRef}
         darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}
+        homeRef={homeRef}
+        servicesRef={servicesRef}
+        pricingRef={pricingRef}
+        galleryRef={galleryRef}
+        barbersRef={barbersRef}
         turnoRef={turnoRef}
       />
-      <Principal
-        scrollToSection={scrollToSection}
-        turnoRef={turnoRef}
-      />
+      <Principal scrollToSection={scrollToSection} turnoRef={turnoRef} />
       <h2 ref={barbersRef} className=" text-MechisYellow text-2xl p-4">
         <strong>Peluqueros</strong>
       </h2>
@@ -91,6 +94,6 @@ function App() {
       <Footer darkMode={darkMode} />
     </>
   );
-};
+}
 
 export default App;

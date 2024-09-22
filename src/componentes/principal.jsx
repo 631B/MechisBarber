@@ -1,7 +1,29 @@
-export function Principal({scrollToSection, turnoRef}) {
-    return (
-        <div className="bg-cover bg-center h-screen flex justify-center items-center" style={{backgroundImage: "url('./images/background.jpeg')"}}>
-            <button className="text-5xl font-bold text-center border-4 border-transparent p-4 transition-colors duration-300 hover:border-MechisYellow" onClick={() => scrollToSection(turnoRef)}>Pedir Turno</button>
-        </div>
-    )
+import AppointmentButton from "./AppointmentButton";
+
+export function Principal({ scrollToSection, turnoRef }) {
+  return (
+    <div className="relative flex p-12 h-screen">
+      <div
+        className="absolute inset-0 bg-cover bg-center z-0"
+        style={{ opacity: 0.8, backgroundImage: "url('./images/bg1.jpg')" }}
+      />
+      <div className="mt-32 flex flex-col justify-center items-start gap-10 z-10">
+        <h1 className="text-7xl font-bold">
+          Barberia y <br />
+          Cortes de pelo
+        </h1>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br />
+          Natus deleniti pariatur esse voluptates.
+        </p>
+        <AppointmentButton
+          scrollToSection={scrollToSection}
+          turnoRef={turnoRef}
+          hideOnScroll={false}
+          isScrolled={false}
+          navBar={false}
+        />
+      </div>
+    </div>
+  );
 }
