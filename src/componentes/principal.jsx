@@ -2,11 +2,12 @@ import AppointmentButton from "./AppointmentButton";
 
 export function Principal({ scrollToSection, turnoRef }) {
   return (
-    <div
-      className="bg-cover bg-center h-screen flex p-12 opacity-80 z-0"
-      style={{ backgroundImage: "url('./images/bg1.jpg')" }}
-    >
-      <div className="mt-32 flex flex-col justify-center items-start gap-10 z-50">
+    <div className="relative flex p-12 h-screen">
+      <div
+        className="absolute inset-0 bg-cover bg-center z-0"
+        style={{ opacity: 0.8, backgroundImage: "url('./images/bg1.jpg')" }}
+      />
+      <div className="mt-32 flex flex-col justify-center items-start gap-10 z-10">
         <h1 className="text-7xl font-bold">
           Barberia y <br />
           Cortes de pelo
@@ -18,6 +19,9 @@ export function Principal({ scrollToSection, turnoRef }) {
         <AppointmentButton
           scrollToSection={scrollToSection}
           turnoRef={turnoRef}
+          hideOnScroll={false}
+          isScrolled={false}
+          navBar={false}
         />
       </div>
     </div>

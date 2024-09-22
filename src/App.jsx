@@ -48,7 +48,7 @@ function App() {
   };
 
   const scrollToSection = (ref) => {
-    const navbarHeight = 96;
+    const navbarHeight = 95;
     const sectionTop = ref.current.offsetTop;
 
     window.scrollTo({

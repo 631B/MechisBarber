@@ -5,7 +5,6 @@ import AppointmentButton from "./AppointmentButton";
 
 export function Navbar({
   scrollToSection,
-  homeRef,
   servicesRef,
   pricingRef,
   galleryRef,
@@ -20,7 +19,7 @@ export function Navbar({
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 0);
+      setIsScrolled(scrollTop > 10);
     };
     window.addEventListener("scroll", handleScroll);
 
@@ -31,10 +30,10 @@ export function Navbar({
 
   return (
     <nav
-      className={`fixed top-0 w-full flex justify-between transition-all duration-300 items-center h-24 px-12 z-50 ${
+      className={`fixed w-full flex justify-between transition-all duration-300 px-2 z-50 ${
         isScrolled
-          ? " bg-MechisWhite dark:bg-MechisBlack"
-          : "border-0 bg-transparent"
+          ? "top-0 h-24  bg-gray-300 dark:bg-gray-900 items-center"
+          : "top-10 h-32 bg-transparent items-start"
       }`}
     >
       <img
@@ -46,13 +45,38 @@ export function Navbar({
         }
         alt="No"
       />
-      <ul className="hidden sm:flex font-bold text-md">
+      <ul
+        className={`flex items-center justify-evenly fixed top-0 left-1/2 transform -translate-x-1/2 w-11/12 h-8 bg-MechisWhite dark:bg-MechisBlack rounded-b-full shadow-md z-0 ${
+          isScrolled ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <li>
+          <strong>Numero:</strong> 13513414
+        </li>
+        <li>
+          <strong>Horarios:</strong> sabado domingo
+        </li>
+      </ul>
+
+      <ul
+        className={`hidden md:flex font-bold text-sm ${
+          isScrolled ? "top-10" : "top-0"
+        }`}
+      >
         <li className="p-4">
           <button
             className="hover:text-MechisYellow"
-            onClick={() => scrollToSection(homeRef)}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             INICIO
+          </button>
+        </li>
+        <li className="p-4">
+          <button
+            className="hover:text-MechisYellow"
+            onClick={() => scrollToSection(barbersRef)}
+          >
+            BARBEROS
           </button>
         </li>
         <li className="p-4">
@@ -79,29 +103,37 @@ export function Navbar({
             GALERIA
           </button>
         </li>
-        <li className="p-4">
-          <button
-            className="hover:text-MechisYellow"
-            onClick={() => scrollToSection(barbersRef)}
-          >
-            BARBEROS
-          </button>
-        </li>
-        <li className="p-4`flex items-center justify-center ">
+        <li className="p-4 flex items-center justify-center ">
           <button onClick={() => toggleDarkMode()}>
             {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
           </button>
         </li>
+        <AppointmentButton
+          scrollToSection={scrollToSection}
+          turnoRef={turnoRef}
+          isScrolled={isScrolled}
+          hideOnScroll={true}
+          navBar={true}
+        />
       </ul>
 
-      <AppointmentButton
-        scrollToSection={scrollToSection}
-        turnoRef={turnoRef}
-      />
-
-      <div onClick={() => setIsOpen(!isOpen)} className="sm:hidden z-10">
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </div>
+      <ul
+        className={`z-10 w-full flex items-center justify-between ${
+          isScrolled ? "block md:hidden" : "hidden md:hidden"
+        }`}
+      >
+        <li className="p-4 flex items-center">
+          <button onClick={() => toggleDarkMode()}>
+            {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
+          </button>
+        </li>
+        <li
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-4 flex items-center"
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </li>
+      </ul>
 
       <ul
         className={`${
@@ -120,11 +152,6 @@ export function Navbar({
             onClick={() => scrollToSection(barbersRef) & setIsOpen(false)}
           >
             Peluqueros
-          </button>
-        </li>
-        <li className="p-4 border-b border-gray-600 w-full text-center">
-          <button onClick={() => scrollToSection(turnoRef) & setIsOpen(false)}>
-            Pedir Turno
           </button>
         </li>
       </ul>
