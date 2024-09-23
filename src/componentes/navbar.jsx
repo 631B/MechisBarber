@@ -30,24 +30,28 @@ export function Navbar({
 
   return (
     <nav
-      className={`fixed w-full flex justify-between transition-all duration-300 px-2 z-50 ${
+      className={`fixed w-full flex justify-end transition-all duration-300 px-2 z-50 ${
         isScrolled
-          ? "top-0 h-24  bg-gray-300 dark:bg-gray-900 items-center"
+          ? "top-0 h-24 bg-gray-300 dark:bg-gray-900 items-center"
           : "top-10 h-32 bg-transparent items-start"
       }`}
     >
-      <img
-        className={"shrink-0 h-20 transition-opacity duration-300"}
-        src={
-          darkMode
-            ? "./images/LogotipoBlanco.png"
-            : "./images/LogotipoNegro.png"
-        }
-        alt="No"
-      />
+      <div className="fixed left-0 rounded-full w-32 bg-MechisWhite dark:bg-MechisBlack">
+        <img
+          className={"shrink-0 h-20 transition-opacity duration-300"}
+          src={
+            darkMode
+              ? "./images/LogotipoBlanco.png"
+              : "./images/LogotipoNegro.png"
+          }
+          alt="No"
+        />
+      </div>
       <ul
-        className={`flex items-center justify-evenly fixed top-0 left-1/2 transform -translate-x-1/2 w-11/12 h-8 bg-MechisWhite dark:bg-MechisBlack rounded-b-full shadow-md z-0 ${
-          isScrolled ? "opacity-0" : "opacity-100"
+        className={`flex transition-all duration-300 items-center justify-evenly fixed top-0 left-1/2 transform -translate-x-1/2 w-11/12 h-8 bg-MechisWhite dark:bg-MechisBlack rounded-b-full shadow-md z-0 ${
+          isScrolled
+            ? "opacity-0 -translate-y-full"
+            : "opacity-100 translate-y-0"
         }`}
       >
         <li>
@@ -59,7 +63,7 @@ export function Navbar({
       </ul>
 
       <ul
-        className={`hidden lg:flex font-bold text-md p-4 ${
+        className={`hidden ml-32 lg:flex font-bold text-md p-4 ${
           isScrolled ? "top-10" : "top-0"
         }`}
       >
@@ -114,11 +118,7 @@ export function Navbar({
         />
       </ul>
 
-      <ul
-        className={`z-10 w-full flex items-center justify-between ${
-          isScrolled ? "block lg:hidden" : "hidden lg:hidden"
-        }`}
-      >
+      <ul className="z-10 ml-32 w-full flex lg:hidden items-center justify-between">
         <li className="p-4 flex items-center">
           <button onClick={() => toggleDarkMode()}>
             {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
@@ -134,9 +134,7 @@ export function Navbar({
 
       <ul
         className={`${
-          isOpen & isScrolled
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-full"
+          isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
         } bg-MechisWhite text-MechisBlack dark:bg-MechisBlack dark:text-MechisWhite transition-all ease-in-out duration-500 absolute top-24 left-0 w-full flex flex-col items-center lg:hidden`}
       >
         <li className="p-4 border-b border-gray-600 w-full text-center">
@@ -174,6 +172,11 @@ export function Navbar({
             onClick={() => scrollToSection(galleryRef) & setIsOpen(false)}
           >
             GALERIA
+          </button>
+        </li>
+        <li className="p-4 border-b border-gray-600 w-full text-center">
+          <button onClick={() => scrollToSection(turnoRef) & setIsOpen(false)}>
+            RESERVAR TURNO
           </button>
         </li>
       </ul>

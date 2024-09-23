@@ -9,7 +9,6 @@ import { Principal } from "./componentes/principal";
 import { Pedirturno } from "./componentes/pedirTurno";
 
 function App() {
-  const corteImages = [corteImage1, corteImage2];
   const homeRef = useRef(null);
   const servicesRef = useRef(null);
   const pricingRef = useRef(null);
@@ -82,11 +81,23 @@ function App() {
       <h2 ref={servicesRef} className="text-MechisYellow text-2xl p-4">
         <strong>Servicios</strong>
       </h2>
-      <Servicios
-        servicio="Corte de Pelo"
-        descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat exercitationem ipsa fuga labore molestias error debitis tenetur sapiente quasi vitae quidem fugiat ducimus, similique rem mollitia commodi voluptas maxime."
-        imagenes={corteImages}
-      />
+      <div className="grid grid-cols-2 grid-rows-2">
+        <Servicios
+          servicio="Corte de Pelo"
+          descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat exercitationem ipsa fuga labore molestias error debitis tenetur sapiente quasi vitae quidem fugiat ducimus, similique rem mollitia commodi voluptas maxime."
+          imagen={corteImage1}
+        />
+        <Servicios
+          servicio="Corte de Pelo"
+          descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat exercitationem ipsa fuga labore molestias error debitis tenetur sapiente quasi vitae quidem fugiat ducimus, similique rem mollitia commodi voluptas maxime."
+          imagen={corteImage2}
+        />
+        <Servicios
+          servicio="Corte de Pelo"
+          descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat exercitationem ipsa fuga labore molestias error debitis tenetur sapiente quasi vitae quidem fugiat ducimus, similique rem mollitia commodi voluptas maxime."
+          imagen={corteImage2}
+        />
+      </div>
       <h2 ref={turnoRef} className="text-MechisYellow text-2xl p-4">
         <strong>Pedir Turno</strong>
       </h2>
