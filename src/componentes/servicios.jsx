@@ -1,12 +1,16 @@
 export function Servicios({ servicio, descripcion, imagen }) {
   return (
-    <div className="h-full w-full py-10 px-24">
-      <div className="p-4 bg-gray-300 text-MechisBlack dark:bg-gray-900 dark:text-MechisWhite">
+    <div className="py-10 px-6 text-sm md:text-lg lg:text-xl">
+      <div className="flex text-center flex-col items-center justify-center p-4 rounded-3xl bg-gray-300 text-MechisBlack dark:bg-gray-900 dark:text-MechisWhite">
         <p>
           <strong>{servicio}</strong>
         </p>
         <p>{descripcion}</p>
-        <img src={imagen} alt="No se encontro la imagen" />
+        <img
+          className="mt-2 w-32 h-32"
+          src={imagen}
+          alt="No se encontro la imagen"
+        />
       </div>
     </div>
   );

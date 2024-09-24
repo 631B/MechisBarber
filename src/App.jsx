@@ -81,20 +81,20 @@ function App() {
       <h2 ref={servicesRef} className="text-MechisYellow text-2xl p-4">
         <strong>Servicios</strong>
       </h2>
-      <div className="grid grid-cols-2 grid-rows-2">
+      <div className="mb-12 grid grid-cols-2 grid-rows-2 w-[490px] h-[600px] md:w-[890px] md:h-[600px] lg:w-[1180px] lg:h-[600px]">
         <Servicios
           servicio="Corte de Pelo"
-          descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat exercitationem ipsa fuga labore molestias error debitis tenetur sapiente quasi vitae quidem fugiat ducimus, similique rem mollitia commodi voluptas maxime."
+          descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit."
           imagen={corteImage1}
         />
         <Servicios
           servicio="Corte de Pelo"
-          descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat exercitationem ipsa fuga labore molestias error debitis tenetur sapiente quasi vitae quidem fugiat ducimus, similique rem mollitia commodi voluptas maxime."
+          descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit."
           imagen={corteImage2}
         />
         <Servicios
           servicio="Corte de Pelo"
-          descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat exercitationem ipsa fuga labore molestias error debitis tenetur sapiente quasi vitae quidem fugiat ducimus, similique rem mollitia commodi voluptas maxime."
+          descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit."
           imagen={corteImage2}
         />
       </div>
