@@ -33,10 +33,14 @@ export function Navbar({
       className={`fixed w-full flex justify-end transition-all duration-300 px-2 z-50 ${
         isScrolled
           ? "top-0 h-24 bg-gray-300 dark:bg-gray-900 items-center"
-          : "top-10 h-32 bg-transparent items-start"
+          : "top-0 md:top-10 h-32 bg-transparent items-start"
       }`}
     >
-      <div className="fixed left-0 rounded-full w-32 bg-MechisWhite dark:bg-MechisBlack">
+      <div className={`fixed left-0 rounded-full w-32 bg-MechisWhite dark:bg-MechisBlack ${
+        isScrolled
+          ? "block"
+          : "hidden md:block"
+      }`}>
         <img
           className={"shrink-0 h-20 transition-opacity duration-300"}
           src={
@@ -51,7 +55,7 @@ export function Navbar({
         className={`flex transition-all duration-300 items-center justify-evenly fixed top-0 left-1/2 transform -translate-x-1/2 w-11/12 h-8 bg-MechisWhite dark:bg-MechisBlack rounded-b-full shadow-md z-0 ${
           isScrolled
             ? "opacity-0 -translate-y-full"
-            : "opacity-100 translate-y-0"
+            : "opacity-0 md:opacity-100 translate-y-0"
         }`}
       >
         <li>
@@ -118,17 +122,16 @@ export function Navbar({
         />
       </ul>
 
-      <ul className="z-10 ml-32 w-full flex lg:hidden items-center justify-between">
+      <ul className="z-10 ml-32 w-full flex lg:hidden items-center justify-end">
         <li className="p-4 flex items-center">
           <button onClick={() => toggleDarkMode()}>
             {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
           </button>
         </li>
-        <li
-          onClick={() => setIsOpen(!isOpen)}
-          className="p-4 flex items-center"
-        >
-          {isOpen ? <FaTimes /> : <FaBars />}
+        <li className="p-4 flex items-center">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </li>
       </ul>
 

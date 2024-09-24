@@ -14,7 +14,7 @@ export function Pedirturno() {
     }
 
     const message = `Hola, me gustaria pedir turno con ${barber}, para ${service}, a las ${time}. ${
-      optionalMessage ? `Mensaje adicional: ${optionalMessage}` : ""
+      optionalMessage ? ` \n${"Mensaje adicional:"} ${optionalMessage}` : ""
     }`;
 
     const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
@@ -28,7 +28,7 @@ export function Pedirturno() {
       <div className="mb-4">
         <label className="block text-lg mb-2">Selecciona un Ṕeluquero:</label>
         <select
-          className="border p-2 bg-MechisYellow"
+          className="border p-2 bg-MechisYellow w-56"
           value={barber}
           onChange={(e) => setBarber(e.target.value)}
         >
@@ -42,7 +42,7 @@ export function Pedirturno() {
       <div className="mb-4">
         <label className="block text-lg mb-2">Selecciona un Servicio:</label>
         <select
-          className="border p-2 bg-MechisYellow"
+          className="border p-2 bg-MechisYellow w-56"
           value={service}
           onChange={(e) => setService(e.target.value)}
         >
@@ -56,7 +56,7 @@ export function Pedirturno() {
       <div className="mb-4">
         <label className="block text-lg mb-2">Selecciona un Horario:</label>
         <select
-          className="border p-2 bg-MechisYellow"
+          className="border p-2 bg-MechisYellow w-56"
           value={time}
           onChange={(e) => setTime(e.target.value)}
         >
@@ -68,17 +68,17 @@ export function Pedirturno() {
       </div>
 
       <div className="mb-4">
-        <label className="block text-lg mb-2">Mensaje opcional:</label>
+        <label className="block text-lg mb-2">Agregar un Mensaje:</label>
         <input
           type="text"
-          className="border p-2 bg-MechisYellow"
+          className="border p-2 bg-MechisYellow w-56 dark:placeholder:text-MechisWhite placeholder:text-MechisBlack "
           value={optionalMessage}
           onChange={(e) => setOptionalMessage(e.target.value)}
           placeholder="Mensaje (opcional)"
         />
       </div>
 
-      <button onClick={sendMessage}>Enviar Mensaje</button>
+      <button className="bg-MechisYellow w-56 p-2 mt-4 hover:text-MechisYellow hover:bg-MechisBlack hover:dark:bg-MechisWhite" onClick={sendMessage}>Enviar Mensaje</button>
     </div>
   );
 }
