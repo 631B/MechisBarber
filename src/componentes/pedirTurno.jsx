@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function Pedirturno() {
   const [barber, setBarber] = useState("");
@@ -78,7 +79,7 @@ export function Pedirturno() {
         />
       </div>
 
-      <button className="bg-MechisYellow w-56 p-2 mt-4 hover:text-MechisYellow hover:bg-MechisBlack hover:dark:bg-MechisWhite" onClick={sendMessage}>Enviar Mensaje</button>
+      <button className="bg-MechisYellow text-green-600 w-56 p-2 mt-4 flex items-center justify-center px-12 hover:text-MechisYellow hover:bg-MechisBlack hover:dark:bg-MechisWhite" onClick={sendMessage}> <FaWhatsapp className="text-green-600" /> Enviar Mensaje</button>
     </div>
   );
 }

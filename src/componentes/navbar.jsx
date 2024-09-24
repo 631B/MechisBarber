@@ -36,11 +36,7 @@ export function Navbar({
           : "top-0 md:top-10 h-32 bg-transparent items-start"
       }`}
     >
-      <div className={`fixed left-0 rounded-full w-32 bg-MechisWhite dark:bg-MechisBlack ${
-        isScrolled
-          ? "block"
-          : "hidden md:block"
-      }`}>
+      <div className="fixed left-0 rounded-full w-32 bg-MechisWhite dark:bg-MechisBlack" >
         <img
           className={"shrink-0 h-20 transition-opacity duration-300"}
           src={
@@ -122,7 +118,7 @@ export function Navbar({
         />
       </ul>
 
-      <ul className="z-10 ml-32 w-full flex lg:hidden items-center justify-end">
+      <ul className="z-10 ml-32 w-full flex lg:hidden items-center justify-end mt-4 mr-8">
         <li className="p-4 flex items-center">
           <button onClick={() => toggleDarkMode()}>
             {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
