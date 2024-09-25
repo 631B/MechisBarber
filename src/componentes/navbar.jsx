@@ -118,7 +118,9 @@ export function Navbar({
         />
       </ul>
 
-      <ul className="z-10 ml-32 w-full flex lg:hidden items-center justify-end mt-4 mr-8">
+      <ul className={`z-50 ml-32 w-full flex lg:hidden items-center justify-end mr-4 ${
+        isScrolled ? "mt-0 md:mt-0" : "mt-4 md:mt-0"
+      }`}>
         <li className="p-4 flex items-center">
           <button onClick={() => toggleDarkMode()}>
             {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}

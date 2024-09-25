@@ -14,7 +14,7 @@ export function Pedirturno() {
       return;
     }
 
-    const message = `Hola, me gustaria pedir turno con ${barber}, para ${service}, a las ${time}. ${
+    const message = `Hola, me gustaría pedir turno con ${barber}, para ${service}, a las ${time}. ${
       optionalMessage ? ` \n${"Mensaje adicional:"} ${optionalMessage}` : ""
     }`;
 
@@ -25,11 +25,13 @@ export function Pedirturno() {
   };
 
   return (
-    <div className="p-4 text-MechisBlack dark:text-MechisWhite">
+    <div className="p-6 text-MechisBlack dark:text-MechisWhite bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg max-w-md mx-auto">
+      <h2 className="text-MechisYellow font-bold text-2xl text-center mb-6">Pedir Turno</h2>
+
       <div className="mb-4">
-        <label className="block text-lg mb-2">Selecciona un Ṕeluquero:</label>
+        <label className="block text-lg mb-2">Selecciona un Peluquero:</label>
         <select
-          className="border p-2 bg-MechisYellow w-56"
+          className="border border-gray-300 p-2 bg-MechisYellow w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-MechisYellow shadow-sm"
           value={barber}
           onChange={(e) => setBarber(e.target.value)}
         >
@@ -43,7 +45,7 @@ export function Pedirturno() {
       <div className="mb-4">
         <label className="block text-lg mb-2">Selecciona un Servicio:</label>
         <select
-          className="border p-2 bg-MechisYellow w-56"
+          className="border border-gray-300 p-2 bg-MechisYellow w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-MechisYellow shadow-sm"
           value={service}
           onChange={(e) => setService(e.target.value)}
         >
@@ -57,14 +59,14 @@ export function Pedirturno() {
       <div className="mb-4">
         <label className="block text-lg mb-2">Selecciona un Horario:</label>
         <select
-          className="border p-2 bg-MechisYellow w-56"
+          className="border border-gray-300 p-2 bg-MechisYellow w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-MechisYellow shadow-sm"
           value={time}
           onChange={(e) => setTime(e.target.value)}
         >
           <option value="">Selecciona un Horario</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
+          <option value="8">8:00</option>
+          <option value="9">9:00</option>
+          <option value="10">10:00</option>
         </select>
       </div>
 
@@ -72,14 +74,20 @@ export function Pedirturno() {
         <label className="block text-lg mb-2">Agregar un Mensaje:</label>
         <input
           type="text"
-          className="border p-2 bg-MechisYellow w-56 dark:placeholder:text-MechisWhite placeholder:text-MechisBlack "
+          className="border border-gray-300 p-2 bg-MechisYellow w-full rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-MechisYellow dark:placeholder-gray-400 placeholder-gray-600"
           value={optionalMessage}
           onChange={(e) => setOptionalMessage(e.target.value)}
           placeholder="Mensaje (opcional)"
         />
       </div>
 
-      <button className="bg-MechisYellow text-green-600 w-56 p-2 mt-4 flex items-center justify-center px-12 hover:text-MechisYellow hover:bg-MechisBlack hover:dark:bg-MechisWhite" onClick={sendMessage}> <FaWhatsapp className="text-green-600" /> Enviar Mensaje</button>
+      <button
+        className="bg-MechisYellow text-green-700 w-full p-3 rounded-lg flex items-center justify-center gap-2 hover:bg-MechisBlack hover:text-MechisYellow transition-all duration-300 shadow-md"
+        onClick={sendMessage}
+      >
+        <FaWhatsapp className="text-2xl" />
+        Enviar Mensaje
+      </button>
     </div>
   );
 }

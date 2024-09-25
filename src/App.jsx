@@ -74,10 +74,10 @@ function App() {
 
       <Principal scrollToSection={scrollToSection} turnoRef={turnoRef} />
 
-      <h2 ref={barbersRef} className=" text-MechisYellow text-2xl p-4 flex justify-center">
-        <strong>Peluqueros</strong>
+      <h2 ref={barbersRef} className="text-MechisYellow text-3xl font-bold p-6 text-center">
+        Barberos
       </h2>
-      <div className="flex flex-col items-center w-full md: md:flex-row md:justify-between">
+      <div className="flex flex-col items-center gap-6 w-full md:flex-row md:justify-between p-6">
         <Peluqueros nombre="Pedro" />
         <Peluqueros nombre="Juan" />
         <Peluqueros nombre="Adolfo" />
@@ -89,7 +89,7 @@ function App() {
           style={{ opacity: 0.8, backgroundImage: "url('./images/bg2.jpeg')" }}
         />
         <div className="flex justify-center mb-12">
-          <h2 className="text-MechisYellow absolute text-2xl p-4 z-30">
+          <h2 className="text-MechisYellow absolute text-2xl font-bold p-4 z-30">
             <strong>Servicios</strong>
           </h2>
         </div>
@@ -122,20 +122,11 @@ function App() {
             <Pricing servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage1} />
         </div>
       </div>
-
-      <h2 ref={turnoRef} className="text-MechisYellow text-2xl p-4 flex justify-center">
-        <strong>Pedir Turno</strong>
-      </h2>
       <Pedirturno />
       <Footer darkMode={darkMode} />
-      <a href="https://www.instagram.com/" className="fixed bottom-5 right-5">
+      <a href="https://www.instagram.com/" className="fixed bottom-5 right-5 z-50">
         <div className="p-2 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 rounded-full">
-          <FaInstagram className="text-MechisWhite text-4xl" style={{ mask: 'url(#icon)', WebkitMask: 'url(#icon)', maskType: 'luminance' }} />
-          <svg className="w-0 h-0">
-            <mask id="icon">
-              <FaInstagram className="text-4xl"/>
-            </mask>
-          </svg>
+          <FaInstagram className="text-4xl text-MechisWhite" />
         </div>
       </a>
     </>
