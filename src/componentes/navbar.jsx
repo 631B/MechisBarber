@@ -36,7 +36,9 @@ export function Navbar({
           : "top-0 md:top-10 h-32 bg-transparent items-start"
       }`}
     >
-      <div className="fixed left-0 rounded-full w-32 bg-MechisWhite dark:bg-MechisBlack" >
+      <div className={`fixed left-0 rounded-full w-32 bg-MechisWhite dark:bg-MechisBlack ${
+        isScrolled ? "mt-0 md:mt-0" : "mt-2 md:mt-0"
+      }`} >
         <img
           className={"shrink-0 h-20 transition-opacity duration-300"}
           src={
@@ -135,50 +137,26 @@ export function Navbar({
 
       <ul
         className={`${
-          isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
+          isOpen ? "block translate-y-0" : "hidden -translate-y-full"
         } bg-MechisWhite text-MechisBlack dark:bg-MechisBlack dark:text-MechisWhite transition-all ease-in-out duration-500 absolute top-24 left-0 w-full flex flex-col items-center lg:hidden`}
       >
-        <li className="p-4 border-b border-gray-600 w-full text-center">
-          <button
-            onClick={() =>
-              window.scrollTo({ top: 0, behavior: "smooth" }) & setIsOpen(false)
-            }
-          >
+        <li onClick={() => window.scrollTo({ top: 0, behavior: "smooth" }) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
             INICIO
-          </button>
         </li>
-        <li className="p-4 border-b border-gray-600 w-full text-center">
-          <button
-            onClick={() => scrollToSection(barbersRef) & setIsOpen(false)}
-          >
+        <li onClick={() => scrollToSection(barbersRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
             BARBEROS
-          </button>
         </li>
-        <li className="p-4 border-b border-gray-600 w-full text-center">
-          <button
-            onClick={() => scrollToSection(servicesRef) & setIsOpen(false)}
-          >
+        <li onClick={() => scrollToSection(servicesRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
             SERVICIOS
-          </button>
         </li>
-        <li className="p-4 border-b border-gray-600 w-full text-center">
-          <button
-            onClick={() => scrollToSection(pricingRef) & setIsOpen(false)}
-          >
+        <li onClick={() => scrollToSection(pricingRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
             PRECIOS
-          </button>
         </li>
-        <li className="p-4 border-b border-gray-600 w-full text-center">
-          <button
-            onClick={() => scrollToSection(galleryRef) & setIsOpen(false)}
-          >
+        <li onClick={() => scrollToSection(galleryRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
             GALERIA
-          </button>
         </li>
-        <li className="p-4 border-b border-gray-600 w-full text-center">
-          <button onClick={() => scrollToSection(turnoRef) & setIsOpen(false)}>
+        <li onClick={() => scrollToSection(turnoRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
             RESERVAR TURNO
-          </button>
         </li>
       </ul>
     </nav>

@@ -25,9 +25,7 @@ export function Pedirturno() {
   };
 
   return (
-    <div className="p-6 text-MechisBlack dark:text-MechisWhite bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg max-w-md mx-auto">
-      <h2 className="text-MechisYellow font-bold text-2xl text-center mb-6">Pedir Turno</h2>
-
+    <div>
       <div className="mb-4">
         <label className="block text-lg mb-2">Selecciona un Peluquero:</label>
         <select

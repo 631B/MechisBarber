@@ -115,14 +115,18 @@ function App() {
       </div>
       
       <h2 ref={pricingRef} className="text-MechisYellow mt-8 text-2xl p-4 flex justify-center"><strong>Precios</strong></h2>
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="mb-12 place-items-center grid grid-cols-1 lg:grid-cols-2 grid-rows-2">
+      <div className="flex items-center justify-center">
+        <div className="place-items-center grid grid-cols-1 lg:grid-cols-2 grid-rows-2">
             <Pricing servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage1}/>
             <Pricing servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage2}/>
             <Pricing servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage1} />
         </div>
       </div>
-      <Pedirturno />
+      
+      <div className="p-6 text-MechisBlack dark:text-MechisWhite bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg max-w-md mx-auto">
+        <h2 ref={turnoRef} className="text-MechisYellow font-bold text-2xl text-center mb-6">Pedir Turno</h2>
+        <Pedirturno />
+      </div>
       <Footer darkMode={darkMode} />
       <a href="https://www.instagram.com/" className="fixed bottom-5 right-5 z-50">
         <div className="p-2 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 rounded-full">
