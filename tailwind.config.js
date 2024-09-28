@@ -4,6 +4,9 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        roboto: ["Roboto", "SansSerif"],
+      },
     colors: {
       'MechisBlack': '#010100',
       "MechisYellow": "#fdaa1b",

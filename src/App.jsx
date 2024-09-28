@@ -74,10 +74,10 @@ function App() {
 
       <Principal scrollToSection={scrollToSection} turnoRef={turnoRef} />
 
-      <h2 ref={barbersRef} className="text-MechisYellow text-3xl font-bold p-6 text-center">
-        Barberos
+      <h2 ref={barbersRef} className="text-MechisBlack dark:text-MechisWhite text-3xl font-bold p-6 text-center">
+        BARBEROS
       </h2>
-      <div className="flex flex-col items-center gap-6 w-full md:flex-row md:justify-between p-6">
+      <div className="flex flex-col items-center gap-8 w-full md:flex-row md:justify-between px-16 pb-10">
         <Peluqueros nombre="Pedro" />
         <Peluqueros nombre="Juan" />
         <Peluqueros nombre="Adolfo" />
@@ -89,8 +89,8 @@ function App() {
           style={{ opacity: 0.8, backgroundImage: "url('./images/bg2.jpeg')" }}
         />
         <div className="flex justify-center mb-12">
-          <h2 className="text-MechisYellow absolute text-2xl font-bold p-4 z-30">
-            <strong>Servicios</strong>
+          <h2 className="text-MechisBlack dark:text-MechisWhite absolute text-2xl font-bold p-4 z-30">
+            <strong>SERVICIOS</strong>
           </h2>
         </div>
         <div className="flex items-center justify-center">
@@ -114,7 +114,7 @@ function App() {
         </div>
       </div>
       
-      <h2 ref={pricingRef} className="text-MechisYellow mt-8 text-2xl p-4 flex justify-center"><strong>Precios</strong></h2>
+      <h2 ref={pricingRef} className="text-MechisBlack dark:text-MechisWhite mt-8 text-2xl p-4 flex justify-center"><strong>PRECIOS</strong></h2>
       <div className="flex items-center justify-center">
         <div className="place-items-center grid grid-cols-1 lg:grid-cols-2 grid-rows-2">
             <Pricing servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage1}/>
@@ -123,11 +123,17 @@ function App() {
         </div>
       </div>
       
-      <div className="p-6 text-MechisBlack dark:text-MechisWhite bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg max-w-md mx-auto">
-        <h2 ref={turnoRef} className="text-MechisYellow font-bold text-2xl text-center mb-6">Pedir Turno</h2>
-        <Pedirturno />
+      <div className="relative min-h-screen flex items-center justify-center bg-cover bg-center" style={{  backgroundImage: "url('./images/bg3.jpeg')" }} >
+        <div className="absolute inset-0 bg-MechisBlack  opacity-50 z-10"></div>
+
+        <div className="z-20 p-6 text-MechisBlack dark:text-MechisWhite bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg max-w-md w-full mx-auto">
+          <h2 ref={turnoRef} className="text-MechisBlack dark:text-MechisWhite mb-3 font-bold text-2xl text-center">RESERVA TU TURNO</h2>
+          <Pedirturno />
+        </div>
       </div>
+
       <Footer darkMode={darkMode} />
+
       <a href="https://www.instagram.com/" className="fixed bottom-5 right-5 z-50">
         <div className="p-2 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 rounded-full">
           <FaInstagram className="text-4xl text-MechisWhite" />

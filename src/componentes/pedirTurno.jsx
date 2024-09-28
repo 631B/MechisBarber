@@ -80,7 +80,7 @@ export function Pedirturno() {
       </div>
 
       <button
-        className="bg-MechisYellow text-green-700 w-full p-3 rounded-lg flex items-center justify-center gap-2 hover:bg-MechisBlack hover:text-MechisYellow transition-all duration-300 shadow-md"
+        className="bg-MechisYellow text-green-700 w-full p-3 rounded-lg flex items-center justify-center gap-2 hover:bg-MechisWhite dark:hover:bg-MechisBlack hover:text-MechisYellow transition-all duration-300 shadow-md"
         onClick={sendMessage}
       >
         <FaWhatsapp className="text-2xl" />
