@@ -1,17 +1,16 @@
-export function Servicios({ servicio, descripcion, imagen }) {
+export function Services({servicio, descripcion, precio, imagen}) {
   return (
-    <div className="py-10 px-6 text-xs md:text-lg lg:text-xl z-30">
-      <div className="flex flex-col text-center items-center justify-center p-4 rounded-3xl bg-gray-200 text-MechisBlack dark:bg-gray-800 dark:text-MechisWhite">
-        <p>
-          <strong>{servicio}</strong>
-        </p>
-        <p>{descripcion}</p>
-        <img
-          className="mt-2 w-32 h-32"
-          src={imagen}
-          alt="No se encontro la imagen"
-        />
+      <div className="p-8 text-xs md:text-lg z-30">
+          <div className="w-[320px] h-[150px] md:w-[320px] md:h-[150px] lg:w-[440px] lg:h-[150px] flex text-center items-center justify-center p-6 rounded-3xl bg-gray-200 text-MechisBlack dark:bg-gray-800 dark:text-MechisWhite">
+              <img className="rounded-full w-28 h-28" src={imagen} alt="" />
+              <div className="flex flex-col">
+                  <p>
+                  <strong>{servicio}</strong>
+                  </p>
+                  <p>{descripcion}</p>
+              </div>
+              <p className="text-MechisYellow">{precio}</p>
+          </div>
       </div>
-    </div>
-  );
+  )
 }

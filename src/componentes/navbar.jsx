@@ -6,7 +6,6 @@ import AppointmentButton from "./AppointmentButton";
 export function Navbar({
   scrollToSection,
   servicesRef,
-  pricingRef,
   galleryRef,
   barbersRef,
   darkMode,
@@ -96,14 +95,6 @@ export function Navbar({
         <li className="p-4">
           <button
             className="hover:text-MechisYellow"
-            onClick={() => scrollToSection(pricingRef)}
-          >
-            PRECIOS
-          </button>
-        </li>
-        <li className="p-4">
-          <button
-            className="hover:text-MechisYellow"
             onClick={() => scrollToSection(galleryRef)}
           >
             GALERIA
@@ -148,9 +139,6 @@ export function Navbar({
         </li>
         <li onClick={() => scrollToSection(servicesRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
             SERVICIOS
-        </li>
-        <li onClick={() => scrollToSection(pricingRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
-            PRECIOS
         </li>
         <li onClick={() => scrollToSection(galleryRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
             GALERIA

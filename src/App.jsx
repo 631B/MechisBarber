@@ -1,19 +1,17 @@
 import { Navbar } from "./componentes/navbar";
 import { Peluqueros } from "./componentes/peluqueros";
-import { Servicios } from "./componentes/servicios";
 import { Footer } from "./componentes/footer";
 import corteImage1 from "/images/corteImage1.jpg";
 import corteImage2 from "/images/corteImage2.jpg";
 import { useEffect, useRef, useState } from "react";
 import { Principal } from "./componentes/principal";
 import { Pedirturno } from "./componentes/pedirTurno";
-import { Pricing } from "./componentes/pricing";
 import { FaInstagram } from "react-icons/fa";
+import { Services } from "./componentes/servicios";
 
 function App() {
   const homeRef = useRef(null);
   const servicesRef = useRef(null);
-  const pricingRef = useRef(null);
   const galleryRef = useRef(null);
   const barbersRef = useRef(null);
   const turnoRef = useRef(null);
@@ -66,7 +64,6 @@ function App() {
         toggleDarkMode={toggleDarkMode}
         homeRef={homeRef}
         servicesRef={servicesRef}
-        pricingRef={pricingRef}
         galleryRef={galleryRef}
         barbersRef={barbersRef}
         turnoRef={turnoRef}
@@ -89,45 +86,28 @@ function App() {
           style={{ opacity: 0.8, backgroundImage: "url('./images/bg2.jpeg')" }}
         />
         <div className="flex justify-center mb-12">
-          <h2 className="text-MechisBlack dark:text-MechisWhite absolute text-2xl font-bold p-4 z-30">
-            <strong>SERVICIOS</strong>
+          <h2 className="text-MechisBlack dark:text-MechisWhite absolute text-4xl font-bold p-4 z-30">
+            <strong>Nuestros Servicios</strong>
           </h2>
         </div>
         <div className="flex items-center justify-center">
-          <div className="mb-12 place-items-center grid grid-cols-2 grid-rows-2 w-[490px] h-[600px] md:w-[700px] md:h-[600px] lg:w-[1000px] lg:h-[600px]">
-            <Servicios
-              servicio="Corte de Pelo"
-              descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-              imagen={corteImage1}
-              />
-            <Servicios
-              servicio="Corte de Pelo"
-              descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-              imagen={corteImage2}
-              />
-            <Servicios
-              servicio="Corte de Pelo"
-              descripcion="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-              imagen={corteImage2}
-              />
+          <div className="place-items-center grid grid-cols-1 md:grid-cols-2 grid-rows-2 w-[490px] h-[600px] md:w-[700px] md:h-[600px] lg:w-[1000px] lg:h-[600px]">
+            <Services servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage1}/>
+            <Services servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage2}/>
+            <Services servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage1} />
           </div>
         </div>
       </div>
       
-      <h2 ref={pricingRef} className="text-MechisBlack dark:text-MechisWhite mt-8 text-2xl p-4 flex justify-center"><strong>PRECIOS</strong></h2>
-      <div className="flex items-center justify-center">
-        <div className="place-items-center grid grid-cols-1 lg:grid-cols-2 grid-rows-2">
-            <Pricing servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage1}/>
-            <Pricing servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage2}/>
-            <Pricing servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage1} />
-        </div>
-      </div>
-      
-      <div className="relative min-h-screen flex items-center justify-center bg-cover bg-center" style={{  backgroundImage: "url('./images/bg3.jpeg')" }} >
-        <div className="absolute inset-0 bg-MechisBlack  opacity-50 z-10"></div>
+      <div className="relative min-h-screen flex items-center justify-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{ opacity: 0.8, backgroundImage: "url('./images/bg2.jpeg')" }}
+        />
+        <div className="absolute inset-0 bg-MechisBlack opacity-50 z-10"></div>
 
         <div className="z-20 p-6 text-MechisBlack dark:text-MechisWhite bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg max-w-md w-full mx-auto">
-          <h2 ref={turnoRef} className="text-MechisBlack dark:text-MechisWhite mb-3 font-bold text-2xl text-center">RESERVA TU TURNO</h2>
+          <h2 ref={turnoRef} className="text-MechisBlack dark:text-MechisWhite mb-3 font-bold text-4xl text-center">Reserva tu Turno</h2>
           <Pedirturno />
         </div>
       </div>

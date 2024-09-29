@@ -72,7 +72,7 @@ export function Pedirturno() {
         <label className="block text-lg mb-2">Agregar un Mensaje:</label>
         <input
           type="text"
-          className="border border-gray-300 p-2 bg-MechisYellow w-full rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-MechisYellow dark:placeholder-gray-400 placeholder-gray-600"
+          className="border border-gray-300 p-2 bg-MechisYellow w-full rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-MechisYellow dark:placeholder-gray-300 placeholder-gray-600"
           value={optionalMessage}
           onChange={(e) => setOptionalMessage(e.target.value)}
           placeholder="Mensaje (opcional)"
