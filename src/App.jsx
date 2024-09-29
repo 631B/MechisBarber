@@ -10,9 +10,7 @@ import { FaInstagram } from "react-icons/fa";
 import { Services } from "./componentes/servicios";
 
 function App() {
-  const homeRef = useRef(null);
   const servicesRef = useRef(null);
-  const galleryRef = useRef(null);
   const barbersRef = useRef(null);
   const turnoRef = useRef(null);
 
@@ -54,6 +52,13 @@ function App() {
       top: sectionTop - navbarHeight,
       behavior: "smooth",
     });
+    
+    if (ref === turnoRef) {
+      window.scrollTo({
+        top: sectionTop - navbarHeight+50,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -62,25 +67,23 @@ function App() {
         scrollToSection={scrollToSection}
         darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}
-        homeRef={homeRef}
         servicesRef={servicesRef}
-        galleryRef={galleryRef}
         barbersRef={barbersRef}
         turnoRef={turnoRef}
       />
 
-      <Principal scrollToSection={scrollToSection} turnoRef={turnoRef} />
+      <Principal scrollToSection={scrollToSection} turnoRef={turnoRef}/>
 
       <section className="py-16 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700">
         <div className="container mx-auto text-center mb-16">
-          <h1 className="text-4xl font-bold text-MechisBlack dark:text-MechisWhite mb-4">Nuestros Barberos</h1>
+          <h1 ref={barbersRef} className="text-4xl font-bold text-MechisBlack dark:text-MechisWhite mb-4 p-4">Nuestros Barberos</h1>
           <p className="text-MechisBlack dark:text-MechisWhite text-lg">
             Elige al barbero que mejor se ajuste a tu estilo. Todos nuestros profesionales están
             altamente capacitados.
           </p>
         </div>
 
-        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6">
+        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-y-6">
           <div className="flex justify-center">
             <Peluqueros nombre="Pedro" />
           </div>
@@ -91,28 +94,26 @@ function App() {
             <Peluqueros nombre="Pedro" />
           </div>
         </div>
-      </section>
 
-      <div ref={servicesRef} className="relative min-h-screen">
-        <div
-          className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ opacity: 0.8, backgroundImage: "url('./images/bg2.jpeg')" }}
-        />
-        <div className="flex justify-center mb-12">
-          <h2 className="text-MechisBlack dark:text-MechisWhite absolute text-4xl font-bold p-4 z-30">
+        <div className="flex justify-center my-16">
+          <div className="w-full h-px bg-gray-400 dark:bg-gray-600"></div>
+        </div>
+
+        <div className="flex justify-center mb-6">
+          <h2 ref={servicesRef} className="text-MechisBlack dark:text-MechisWhite absolute text-4xl font-bold p-4">
             <strong>Nuestros Servicios</strong>
           </h2>
         </div>
         <div className="flex items-center justify-center">
-          <div className="place-items-center grid grid-cols-1 md:grid-cols-2 grid-rows-2 w-[490px] h-[600px] md:w-[700px] md:h-[600px] lg:w-[1000px] lg:h-[600px]">
+          <div className="place-items-center mt-8 grid grid-cols-1 lg:grid-cols-2 grid-rows-2 w-[490px] h-[600px] md:w-[700px] md:h-[600px] lg:w-[1000px] lg:h-[500px]">
             <Services servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage1}/>
             <Services servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage2}/>
             <Services servicio="Corte de Pelo" descripcion="lorem ipsum dolor sit amet consectetur" precio="42$" imagen={corteImage1} />
           </div>
         </div>
-      </div>
+      </section>
       
-      <div className="relative min-h-screen flex items-center justify-center">
+      <div className="relative min-h-screen flex items-center justify-center" ref={turnoRef}>
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{ opacity: 0.8, backgroundImage: "url('./images/bg2.jpeg')" }}
@@ -120,7 +121,7 @@ function App() {
         <div className="absolute inset-0 bg-MechisBlack opacity-50 z-10"></div>
 
         <div className="z-20 p-6 text-MechisBlack dark:text-MechisWhite bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg max-w-md w-full mx-auto">
-          <h2 ref={turnoRef} className="text-MechisBlack dark:text-MechisWhite mb-3 font-bold text-4xl text-center">Reserva tu Turno</h2>
+          <h2 className="text-MechisBlack dark:text-MechisWhite mb-3 font-bold text-4xl text-center">Reserva tu Turno</h2>
           <Pedirturno />
         </div>
       </div>

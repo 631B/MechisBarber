@@ -6,7 +6,6 @@ import AppointmentButton from "./AppointmentButton";
 export function Navbar({
   scrollToSection,
   servicesRef,
-  galleryRef,
   barbersRef,
   darkMode,
   toggleDarkMode,
@@ -92,14 +91,6 @@ export function Navbar({
             SERVICIOS
           </button>
         </li>
-        <li className="p-4">
-          <button
-            className="hover:text-MechisYellow"
-            onClick={() => scrollToSection(galleryRef)}
-          >
-            GALERIA
-          </button>
-        </li>
         <li className="p-4 flex items-center justify-center ">
           <button onClick={() => toggleDarkMode()}>
             {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
@@ -139,9 +130,6 @@ export function Navbar({
         </li>
         <li onClick={() => scrollToSection(servicesRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
             SERVICIOS
-        </li>
-        <li onClick={() => scrollToSection(galleryRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
-            GALERIA
         </li>
         <li onClick={() => scrollToSection(turnoRef) & setIsOpen(false)} className="p-4 cursor-pointer border-b border-gray-600 w-full text-center">
             RESERVAR TURNO
