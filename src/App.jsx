@@ -71,14 +71,27 @@ function App() {
 
       <Principal scrollToSection={scrollToSection} turnoRef={turnoRef} />
 
-      <h2 ref={barbersRef} className="text-MechisBlack dark:text-MechisWhite text-3xl font-bold p-6 text-center">
-        BARBEROS
-      </h2>
-      <div className="flex flex-col items-center gap-8 w-full md:flex-row md:justify-between px-16 pb-10">
-        <Peluqueros nombre="Pedro" />
-        <Peluqueros nombre="Juan" />
-        <Peluqueros nombre="Adolfo" />
-      </div>
+      <section className="py-16 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700">
+        <div className="container mx-auto text-center mb-16">
+          <h1 className="text-4xl font-bold text-MechisBlack dark:text-MechisWhite mb-4">Nuestros Barberos</h1>
+          <p className="text-MechisBlack dark:text-MechisWhite text-lg">
+            Elige al barbero que mejor se ajuste a tu estilo. Todos nuestros profesionales están
+            altamente capacitados.
+          </p>
+        </div>
+
+        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6">
+          <div className="flex justify-center">
+            <Peluqueros nombre="Pedro" />
+          </div>
+          <div className="flex justify-center">
+            <Peluqueros nombre="Pedro" />
+          </div>
+          <div className="flex justify-center">
+            <Peluqueros nombre="Pedro" />
+          </div>
+        </div>
+      </section>
 
       <div ref={servicesRef} className="relative min-h-screen">
         <div
